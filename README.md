@@ -1,4 +1,4 @@
-# Mirror: An LLM-powered programming-by-example programming language.
+# Miwwor: An LLM-powered programming language based off Mirror.
 
 For more details, see the [blog post](https://austinhenley.com/blog/mirrorlang.html).
 
