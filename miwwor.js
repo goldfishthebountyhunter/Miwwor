@@ -112,24 +112,21 @@ class MirrorParser {
     parseLiteral() {
         if (this.match('true', 'false')) {
             return this.previous();
-        } else if (this.matchNumber()) {
+        } else if ((is("-") || this.isNumberToken()) {
+            const [found, value] = this.matchNumber()
+            if (found)
+                return value
             return parseFloat(this.previous());
         } else if (this.matchString()) {
             return this.previous();
         } else if (this.match('[')) {
             const literal = this.parseLiteral();
-            this.consume(']');
-            return { type: 'list', value: literal };
-        } else if (this.match('{')) {
-            const key = this.parseLiteral();
-            this.consume(':');
-            const value = this.parseLiteral();
-            this.consume('}');
-            return { type: 'dict', key, value };
-        } else {
-            throw new Error(`Unexpected literal: ${this.peek()}`);
-        }
-    }
+            literals.push(literal)
+            if (this.peek() == ",") {
+                this.consume(",")
+            } else {
+                break
+            }
 
     parseExpression() {
         const name = this.consumeIdentifier();
@@ -163,14 +160,45 @@ class MirrorParser {
         return false;
     }
 
-    matchNumber() {
-        const token = this.peek();
-        if (/^\d+(\.\d+)?$/.test(token)) {
-            this.advance();
-            return true;
-        }
-        return false;
+    is(item) {
+        return item == this.peek();
     }
+
+    isNumberToken() {
+        let token = this.peek();
+        let tcode = token.charCodeAt(0)
+        return tcode > _0 && tcode < _9
+    }
+            
+    matchNumber() {
+        let found = false
+        let number = []
+
+        if (this.is("-")) {
+            number.push(this.peek());
+            this.advance()
+        }
+
+        if (this.isNumberToken()) {
+            number.push(this.peek())
+            this.advance()
+            found = true
+        }
+
+        if (this.is(".")) {
+            found = false
+            number.push(".")
+            this.advance()
+            
+            if (this.isNumberToken()) {
+            number.push(this.peek())
+            this.advance()
+            found = true
+        }
+    }
+        
+    return [found, +number];
+}
 
     matchString() {
         const token = this.peek();
