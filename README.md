@@ -1,4 +1,4 @@
-# Miwwor: An LLM-powered programming language based off Miwwor.
+# Miwwor: An LLM-powered programming language based off Mirror.
 
 In the Miwwor programming language, you define functions by providing sets of input-outputs pairs and you can call those functions. That is it. The entire program behavior must be specified through those examples.
 
