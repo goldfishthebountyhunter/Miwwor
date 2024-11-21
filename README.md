@@ -1,6 +1,6 @@
 # Miwwor: An LLM-powered programming language based off Mirror.
 
-For more details, see the [blog post](https://austinhenley.com/blog/mirrorlang.html).
+Mirror, see the [blog post](https://austinhenley.com/blog/mirrorlang.html).
 
 <img width="1080" alt="mirrorplayground" src="https://github.com/user-attachments/assets/95c21c7c-1613-4d0d-a565-54115f186e80">
 
