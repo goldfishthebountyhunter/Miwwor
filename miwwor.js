@@ -112,7 +112,7 @@ class MirrorParser {
     parseLiteral() {
         if (this.match('true', 'false')) {
             return this.previous();
-        } else if ((is("-") || this.isNumberToken()) {
+        } else if (this.is("-") || this.isNumberToken()) {
             const [found, value] = this.matchNumber()
             if (found)
                 return value
