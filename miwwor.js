@@ -196,8 +196,9 @@ class MirrorParser {
             found = true
         }
     }
-        
-    return [found, +number];
+
+    console.log([found, +(number.join(""))])
+    return [found, +(number.join(""))];
 }
 
     matchString() {
