@@ -116,7 +116,8 @@ class MirrorParser {
             const [found, value] = this.matchNumber()
             if (found)
                 return value
-            return parseFloat(this.previous());
+        }
+            throw new Error ('Unexpected Literal: ${this.peek()}');
         } else if (this.matchString()) {
             return this.previous();
         } else if (this.match('[')) {
