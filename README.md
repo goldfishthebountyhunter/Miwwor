@@ -1,9 +1,5 @@
 # Miwwor: An LLM-powered programming language based off Miwwor.
 
-Miwwor, see the [blog post](https://austinhenley.com/blog/Miwworlang.html).
-
-<img width="1080" alt="Miwworplayground" src="https://github.com/user-attachments/assets/95c21c7c-1613-4d0d-a565-54115f186e80">
-
 In the Miwwor programming language, you define functions by providing sets of input-outputs pairs and you can call those functions. That is it. The entire program behavior must be specified through those examples.
 
 ```
